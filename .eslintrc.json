@@ -2,9 +2,22 @@
   "extends": [
     "next/core-web-vitals",
     "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:jest/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
     "prettier"
-  ]
+  ],
+  "rules": {
+    "no-console": "warn",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
+  }
 }
