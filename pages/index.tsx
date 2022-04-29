@@ -5,6 +5,7 @@ import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   const x = 1;
+
   console.log("init");
   return (
     <div className={styles.container}>
