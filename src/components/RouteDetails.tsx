@@ -55,8 +55,11 @@ const RouteDetails = () => {
         </Select>
       </FormControl>
       <hr />
-      {stopsData.map((stopData) => {
-        return <StopDetails key={stopData.id} {...stopData} canAddCargo />;
+      {stopsData.map((stopData, index) => {
+        const isLastStop = stopsData.length === index + 1;
+        const StopDetailsProps = { ...stopData, scheduleStrategy, canAddCargo, index, isLastStop };
+
+        return <StopDetails key={stopData.id} {...StopDetailsProps} />;
       })}
     </>
   );

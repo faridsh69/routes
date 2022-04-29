@@ -1,3 +1,5 @@
+import { ScheduleStrategyType } from "./ScheduleStrategyType";
+
 export type StopDetailsPropsType = {
   id: number;
   country: string;
@@ -10,4 +12,7 @@ export type StopDetailsPropsType = {
   timeFrom: number | null;
   timeTo: number | null;
   canAddCargo: boolean;
+  scheduleStrategy: ScheduleStrategyType;
+  index: number;
+  isLastStop: boolean;
 };
