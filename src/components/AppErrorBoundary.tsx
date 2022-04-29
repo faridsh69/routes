@@ -5,8 +5,7 @@ import { useRouter } from "next/router";
 import { ErrorFallbackPropsType } from "@interfaces/ErrorFallbackPropsType";
 
 const ErrorFallback: FC<ErrorFallbackPropsType> = ({ error, resetErrorBoundary }) => {
-  // console.log(error.message);
-  // call errorHappened API
+  // log api details
   return (
     <div role="alert">
       {error.message}

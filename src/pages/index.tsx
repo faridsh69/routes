@@ -1,11 +1,14 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 
+import { Master } from "@layouts/master";
 import { AppErrorBoundary } from "@components/AppErrorBoundary";
 import { RouteDetails } from "@components/RouteDetails";
-import { Master } from "@layouts/master";
+import { HomePropsType } from "@interfaces/HomePropsType";
 
-const Home: NextPage = () => {
+const Home: NextPage<HomePropsType> = (props) => {
+  const { stops } = props;
+
   return (
     <>
       <Head>
@@ -15,11 +18,22 @@ const Home: NextPage = () => {
       </Head>
       <AppErrorBoundary>
         <Master>
-          <RouteDetails />
+          <RouteDetails stops={stops} />
         </Master>
       </AppErrorBoundary>
     </>
   );
 };
+
+export async function getStaticProps() {
+  const res = await fetch(`${process.env.API_URL}/api/stops`);
+  const stops = await res.json();
+
+  return {
+    props: {
+      stops,
+    },
+  };
+}
 
 export default Home;

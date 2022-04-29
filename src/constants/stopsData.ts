@@ -1,6 +1,6 @@
 import { StopDataTyp } from "@interfaces/StopDataType";
 
-export const stopsData: StopDataTyp[] = [
+const stopsData: StopDataTyp[] = [
   {
     id: 1,
     country: "Germany",
@@ -62,3 +62,5 @@ export const stopsData: StopDataTyp[] = [
     timeTo: null,
   },
 ];
+
+export { stopsData };

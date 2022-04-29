@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, FC, useState } from "react";
 import {
   Checkbox,
   FormControl,
@@ -11,12 +11,14 @@ import {
   Typography,
 } from "@mui/material";
 
+import { StopDetails } from "@components/StopDetails";
 import { SCHEDULE_STRATEGIES, SCHEDULE_STRATEGY_FIXED } from "@constants/strategySchedules";
 import { ScheduleStrategyType } from "@interfaces/ScheduleStrategyType";
-import { stopsData } from "@constants/stopsData";
-import { StopDetails } from "./StopDetails";
+import { RouteDetailsPropsType } from "@interfaces/RouteDetailsPropsType";
 
-const RouteDetails = () => {
+const RouteDetails: FC<RouteDetailsPropsType> = (props) => {
+  const { stops } = props;
+
   const [scheduleStrategy, setScheduleStrategy] =
     useState<ScheduleStrategyType>(SCHEDULE_STRATEGY_FIXED);
   const [canAddCargo, setCanAddCargo] = useState<boolean>(false);
@@ -55,8 +57,8 @@ const RouteDetails = () => {
         </Select>
       </FormControl>
       <hr />
-      {stopsData.map((stopData, index) => {
-        const isLastStop = stopsData.length === index + 1;
+      {stops.map((stopData, index) => {
+        const isLastStop = stops.length === index + 1;
         const StopDetailsProps = { ...stopData, scheduleStrategy, canAddCargo, index, isLastStop };
 
         return <StopDetails key={stopData.id} {...StopDetailsProps} />;
