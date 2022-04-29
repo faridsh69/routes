@@ -28,7 +28,7 @@
   },
   "lint-staged": {
     "**/*.(ts|js)?(x)": [
-      "npm run lint",
+      "yarn lint",
       "prettier --write"
     ]
   }
