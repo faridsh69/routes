@@ -6,11 +6,11 @@ export type StopDetailsPropsType = {
   city: string;
   postalCode: number;
   title: string;
-  openingHoursFrom: number;
-  openingHoursTo: number;
+  openingHoursFrom: string;
+  openingHoursTo: string;
   date: string | null;
-  timeFrom: number | null;
-  timeTo: number | null;
+  timeFrom: string | null;
+  timeTo: string | null;
   canAddCargo: boolean;
   scheduleStrategy: ScheduleStrategyType;
   index: number;

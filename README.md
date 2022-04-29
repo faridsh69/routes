@@ -16,11 +16,6 @@ https://drive.google.com/drive/folders/1FN-rtGUnhI4umCwZPpP6NrsHmhHwUezG
 - 0. create .env file
 - 0. change favicon
 - 0. prepare test env
-
-0. multi language (for texts also for date input)
-1. add theme
-2. write test
-
 - 1. create a RouteDetails component
 - 2. add dropdown for scheduleStrategy
 - create enum for scheduleStrategies: Fixed - Semi Flexible - Flexible
@@ -43,11 +38,10 @@ https://drive.google.com/drive/folders/1FN-rtGUnhI4umCwZPpP6NrsHmhHwUezG
 - hasCargoItem
 - we have pickup date and arrival date
 - piclup date for first one, for others arrival date
-  try to collect data for all of fields
-  try to call api to get data
-  create date formatted input
-  create time formatted input, select or ... ?
-  try to render hours with minutes as :00
+- try to call api to get data
+- create date formatted input
+- create time formatted input, select or ... ?
+- try to render hours with minutes as :00
   try to add badge for each of them, for last one create finish flag
   try to add styles
   cargoItem
@@ -59,5 +53,10 @@ https://drive.google.com/drive/folders/1FN-rtGUnhI4umCwZPpP6NrsHmhHwUezG
   Length: integer input with cm
   Width: integer input with cm
   Height: integer input with cm
-  _ create a line between total weight and length
-  _ create a line for save and cancel
+
+* create a line between total weight and length
+* create a line for save and cancel
+
+- write test
+- add theme
+- multi language (for texts also for date input)

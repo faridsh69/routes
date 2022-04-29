@@ -12,15 +12,16 @@ import {
 } from "@mui/material";
 
 import { StopDetails } from "@components/StopDetails";
-import { SCHEDULE_STRATEGIES, SCHEDULE_STRATEGY_FIXED } from "@constants/strategySchedules";
+import { SCHEDULE_STRATEGIES, SCHEDULE_STRATEGY_FLEXIBLE } from "@constants/strategySchedules";
 import { ScheduleStrategyType } from "@interfaces/ScheduleStrategyType";
 import { RouteDetailsPropsType } from "@interfaces/RouteDetailsPropsType";
 
 const RouteDetails: FC<RouteDetailsPropsType> = (props) => {
   const { stops } = props;
 
-  const [scheduleStrategy, setScheduleStrategy] =
-    useState<ScheduleStrategyType>(SCHEDULE_STRATEGY_FIXED);
+  const [scheduleStrategy, setScheduleStrategy] = useState<ScheduleStrategyType>(
+    SCHEDULE_STRATEGY_FLEXIBLE
+  );
   const [canAddCargo, setCanAddCargo] = useState<boolean>(false);
 
   const handleChangeCargoCheckbox = (event: ChangeEvent<HTMLInputElement>, checked: boolean) => {

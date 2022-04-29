@@ -1,12 +1,6 @@
-export type StopDataTyp = {
-  id: number;
-  country: string;
-  city: string;
-  postalCode: number;
-  title: string;
-  openingHoursFrom: number;
-  openingHoursTo: number;
-  date: string | null;
-  timeFrom: number | null;
-  timeTo: number | null;
-};
+import { StopDetailsPropsType } from "./StopDetailsPropsType";
+
+export type StopDataTyp = Omit<
+  StopDetailsPropsType,
+  "canAddCargo" | "scheduleStrategy" | "index" | "isLastStop"
+>;

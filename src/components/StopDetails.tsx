@@ -1,10 +1,13 @@
+import { FC } from "react";
+import { Grid, Typography } from "@mui/material";
+
+import { DateField } from "@components/partials/DateField";
 import {
   SCHEDULE_STRATEGY_FLEXIBLE,
   SCHEDULE_STRATEGY_SEMI_FLEXIBLE,
 } from "@constants/strategySchedules";
 import { StopDetailsPropsType } from "@interfaces/StopDetailsPropsType";
-import { Grid, Typography } from "@mui/material";
-import { FC } from "react";
+import { TimeField } from "./partials/TimeField";
 
 const StopDetails: FC<StopDetailsPropsType> = (props) => {
   const {
@@ -40,17 +43,14 @@ const StopDetails: FC<StopDetailsPropsType> = (props) => {
         </span>
       </Typography>
       {editableDate ? (
-        <>
-          {index === 0 ? "Pick up date" : "Arrival date"}
-          <input defaultValue={date as string} />
-        </>
+        <DateField defaultDate={date} label={index === 0 ? "Pick up date" : "Arrival date"} />
       ) : (
         "Estimated arrival - "
       )}
       {editableTime ? (
         <>
-          <input defaultValue={timeFrom as number} />
-          <input defaultValue={timeTo as number} />
+          <TimeField defaultTime={timeFrom} label="From" />
+          <TimeField defaultTime={timeTo} label="To" />
         </>
       ) : (
         ""
