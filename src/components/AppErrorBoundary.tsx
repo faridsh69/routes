@@ -2,12 +2,9 @@ import { FC, PropsWithChildren } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { useRouter } from "next/router";
 
-import { ErrorFallbackProps } from "../types/ErrorFallbackProps";
+import { ErrorFallbackPropsType } from "@interfaces/ErrorFallbackPropsType";
 
-const ErrorFallback: FC<ErrorFallbackProps> = ({
-  error,
-  resetErrorBoundary,
-}) => {
+const ErrorFallback: FC<ErrorFallbackPropsType> = ({ error, resetErrorBoundary }) => {
   // console.log(error.message);
   // call errorHappened API
   return (

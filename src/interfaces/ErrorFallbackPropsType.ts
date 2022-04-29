@@ -1,4 +1,4 @@
-export type ErrorFallbackProps = {
+export type ErrorFallbackPropsType = {
   error: Error;
   resetErrorBoundary: () => void;
 };
