@@ -2,12 +2,13 @@ import { FC } from "react";
 import { Grid, Typography } from "@mui/material";
 
 import { DateField } from "@components/partials/DateField";
+import { TimeField } from "@components/partials/TimeField";
+import { CargoItem } from "@components/CargoItem";
 import {
   SCHEDULE_STRATEGY_FLEXIBLE,
   SCHEDULE_STRATEGY_SEMI_FLEXIBLE,
 } from "@constants/strategySchedules";
 import { StopDetailsPropsType } from "@interfaces/StopDetailsPropsType";
-import { TimeField } from "./partials/TimeField";
 
 const StopDetails: FC<StopDetailsPropsType> = (props) => {
   const {
@@ -56,7 +57,7 @@ const StopDetails: FC<StopDetailsPropsType> = (props) => {
         ""
       )}
       <button>+ Gate reference</button>
-      {canAddCargo ? "canAddCargo" : "no cargo"}
+      {canAddCargo ? <CargoItem /> : ""}
     </Grid>
   );
 };
