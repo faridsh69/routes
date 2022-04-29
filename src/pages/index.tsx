@@ -1,9 +1,8 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 import { AppErrorBoundary } from "@components/AppErrorBoundary";
 import { RouteDetails } from "@components/RouteDetails";
 
-const Home: NextPage = () => {
+const Home = () => {
   return (
     <>
       <Head>
