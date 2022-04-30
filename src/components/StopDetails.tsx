@@ -36,9 +36,9 @@ const StopDetails: FC<StopDetailsPropsType> = (props) => {
 
   return (
     <Grid container mt={5} mb={5} columnSpacing={{ xs: 1, sm: 2 }}>
-      <Grid item xs={1}>
+      <Grid item xs={1} textAlign="right">
         <Badge badgeContent={isLastStop ? "Final" : index + 1} color="secondary">
-          <LocationOnIcon color="action" />
+          <LocationOnIcon color="secondary" />
         </Badge>
       </Grid>
       <Grid item xs={11}>
@@ -88,7 +88,9 @@ const StopDetails: FC<StopDetailsPropsType> = (props) => {
               <Button color="warning">+ Gate reference</Button>
             </Grid>
           </Grid>
-          <Grid xs={12}>{canAddCargo ? <CargoItem /> : ""}</Grid>
+          <Grid item xs={12}>
+            {canAddCargo ? <CargoItem /> : ""}
+          </Grid>
         </Grid>
       </Grid>
     </Grid>

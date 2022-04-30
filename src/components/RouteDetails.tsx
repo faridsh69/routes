@@ -58,7 +58,13 @@ const RouteDetails: FC<RouteDetailsPropsType> = (props) => {
         <Grid item xs={12} md={3}>
           <FormGroup>
             <FormControlLabel
-              control={<Checkbox checked={canAddCargo} onChange={handleChangeCargoCheckbox} />}
+              control={
+                <Checkbox
+                  checked={canAddCargo}
+                  color="success"
+                  onChange={handleChangeCargoCheckbox}
+                />
+              }
               label="Can Add Cargo"
             />
           </FormGroup>

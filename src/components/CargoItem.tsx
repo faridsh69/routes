@@ -27,13 +27,13 @@ const CargoItem = () => {
           + Add Cargo
         </Button>
       ) : (
-        ""
+        <Divider />
       )}
-      <Divider />
+
       {open ? (
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <Typography component="p" variant="h6">
+            <Typography component="p" variant="h6" color="secondary">
               Cargo Item
             </Typography>
           </Grid>
@@ -80,7 +80,11 @@ const CargoItem = () => {
             </FormControl>
           </Grid>
           <Grid item md={3} sm={6} xs={12}>
-            <FormControl variant="outlined" fullWidth>
+            <FormControl
+              variant="outlined"
+              fullWidth
+              style={{ borderRight: "2px solid #eee", paddingRight: "10px" }}
+            >
               <FormLabel htmlFor="total-weight">Total weight:</FormLabel>
               <OutlinedInput
                 id="total-weight"
@@ -121,7 +125,9 @@ const CargoItem = () => {
           </Grid>
           <Grid item xs={12} mb={3}>
             <Button onClick={toggleCargoForm}>Save</Button>
-            <Button onClick={toggleCargoForm}>Cancel</Button>
+            <Button onClick={toggleCargoForm} color="secondary">
+              Cancel
+            </Button>
           </Grid>
         </Grid>
       ) : (
