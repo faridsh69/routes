@@ -1,3 +1,16 @@
+import {
+  Button,
+  Divider,
+  FormControl,
+  FormLabel,
+  Grid,
+  InputAdornment,
+  MenuItem,
+  OutlinedInput,
+  Select,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { useState } from "react";
 
 const CargoItem = () => {
@@ -9,45 +22,112 @@ const CargoItem = () => {
 
   return (
     <>
-      <button onClick={toggleCargoForm}>+ {open ? "Close" : "Open"} Cargo Form</button>
-      {open ? (
-        <div>
-          Cargo Item
-          <hr />
-          Unloading stop:
-          <select>
-            <option>Test</option>
-          </select>
-          <br />
-          Type:
-          <select>
-            <option>Test</option>
-          </select>
-          <br />
-          PO number:
-          <input type="number" />
-          <br />
-          Quantity:
-          <input type="number" />
-          <br />
-          Total weight:
-          <input type="number" />
-          <br />
-          Length:
-          <input type="number" />
-          <br />
-          Width:
-          <input type="number" />
-          <br />
-          Height:
-          <input type="number" />
-          <hr />
-          <button>Save</button>
-          <button>Cancel</button>
-        </div>
+      {!open ? (
+        <Button color="warning" onClick={toggleCargoForm}>
+          + Add Cargo
+        </Button>
       ) : (
         ""
       )}
+      <Divider />
+      {open ? (
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <Typography component="p" variant="h6">
+              Cargo Item
+            </Typography>
+          </Grid>
+          <Grid item sm={5} xs={12}>
+            <FormControl fullWidth>
+              <FormLabel htmlFor="unloading-stop">Unloading stop</FormLabel>
+              <Select id="unloading-stop" displayEmpty>
+                <MenuItem disabled>
+                  <em>Please select an option</em>
+                </MenuItem>
+                {["Unloading stop 1", "Unloading stop 2", "Unloading stop 3"].map((item) => (
+                  <MenuItem key={item} value={item}>
+                    {item}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item sm={4} xs={12}>
+            <FormControl fullWidth>
+              <FormLabel htmlFor="type">Type</FormLabel>
+              <Select id="type" displayEmpty>
+                <MenuItem disabled>
+                  <em>Please select an option</em>
+                </MenuItem>
+                {["Unloading stop 1", "Unloading stop 2", "Unloading stop 3"].map((item) => (
+                  <MenuItem key={item} value={item}>
+                    {item}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item md={3} sm={3} xs={12}>
+            <FormControl variant="standard" fullWidth>
+              <FormLabel htmlFor="po-number">PO number</FormLabel>
+              <TextField id="po-number" type="integer" />
+            </FormControl>
+          </Grid>
+          <Grid item md={2} sm={6} xs={12}>
+            <FormControl variant="standard" fullWidth>
+              <FormLabel htmlFor="quantity">Quantity</FormLabel>
+              <TextField id="quantity" type="integer" />
+            </FormControl>
+          </Grid>
+          <Grid item md={3} sm={6} xs={12}>
+            <FormControl variant="outlined" fullWidth>
+              <FormLabel htmlFor="total-weight">Total weight:</FormLabel>
+              <OutlinedInput
+                id="total-weight"
+                endAdornment={<InputAdornment position="end">kg</InputAdornment>}
+              />
+            </FormControl>
+          </Grid>
+          <Grid item md={7} xs={12}>
+            <Grid container spacing={2}>
+              <Grid item sm={4} xs={12}>
+                <FormControl variant="outlined" fullWidth>
+                  <FormLabel htmlFor="length">Length</FormLabel>
+                  <OutlinedInput
+                    id="length"
+                    endAdornment={<InputAdornment position="end">cm</InputAdornment>}
+                  />
+                </FormControl>
+              </Grid>
+              <Grid item sm={4} xs={12}>
+                <FormControl variant="outlined" fullWidth>
+                  <FormLabel htmlFor="width">Width</FormLabel>
+                  <OutlinedInput
+                    id="width"
+                    endAdornment={<InputAdornment position="end">cm</InputAdornment>}
+                  />
+                </FormControl>
+              </Grid>
+              <Grid item sm={4} xs={12}>
+                <FormControl variant="outlined" fullWidth>
+                  <FormLabel htmlFor="height">Height</FormLabel>
+                  <OutlinedInput
+                    id="height"
+                    endAdornment={<InputAdornment position="end">cm</InputAdornment>}
+                  />
+                </FormControl>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item xs={12} mb={3}>
+            <Button onClick={toggleCargoForm}>Save</Button>
+            <Button onClick={toggleCargoForm}>Cancel</Button>
+          </Grid>
+        </Grid>
+      ) : (
+        ""
+      )}
+      <Divider />
     </>
   );
 };

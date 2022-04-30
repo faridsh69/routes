@@ -23,7 +23,7 @@ const RouteDetails: FC<RouteDetailsPropsType> = (props) => {
   const [scheduleStrategy, setScheduleStrategy] = useState<ScheduleStrategyType>(
     SCHEDULE_STRATEGY_FLEXIBLE
   );
-  const [canAddCargo, setCanAddCargo] = useState<boolean>(false);
+  const [canAddCargo, setCanAddCargo] = useState<boolean>(true);
 
   const handleChangeCargoCheckbox = (event: ChangeEvent<HTMLInputElement>, checked: boolean) => {
     setCanAddCargo(checked);
@@ -58,7 +58,7 @@ const RouteDetails: FC<RouteDetailsPropsType> = (props) => {
         <Grid item xs={12} md={3}>
           <FormGroup>
             <FormControlLabel
-              control={<Checkbox value={canAddCargo} onChange={handleChangeCargoCheckbox} />}
+              control={<Checkbox checked={canAddCargo} onChange={handleChangeCargoCheckbox} />}
               label="Can Add Cargo"
             />
           </FormGroup>

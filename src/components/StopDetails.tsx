@@ -36,14 +36,14 @@ const StopDetails: FC<StopDetailsPropsType> = (props) => {
 
   return (
     <Grid container mt={5} mb={5} columnSpacing={{ xs: 1, sm: 2 }}>
-      <Grid item md={5}>
+      <Grid item xs={1}>
+        <Badge badgeContent={isLastStop ? "Final" : index + 1} color="secondary">
+          <LocationOnIcon color="action" />
+        </Badge>
+      </Grid>
+      <Grid item xs={11}>
         <Grid container>
-          <Grid item xs={1}>
-            <Badge badgeContent={isLastStop ? "Final" : index + 1} color="secondary">
-              <LocationOnIcon color="action" />
-            </Badge>
-          </Grid>
-          <Grid item xs={11}>
+          <Grid item md={5}>
             <Typography
               component="p"
               variant="h6"
@@ -58,36 +58,39 @@ const StopDetails: FC<StopDetailsPropsType> = (props) => {
               </Typography>
             </Typography>
           </Grid>
-        </Grid>
-      </Grid>
-      <Grid item md={7}>
-        <Grid container columnSpacing={{ xs: 1 }}>
-          {editableDate ? (
-            <Grid item xs={dateTimeFieldsGridSize}>
-              <DateField defaultDate={date} label={index === 0 ? "Pick up date" : "Arrival date"} />
-            </Grid>
-          ) : (
-            "Estimated arrival - "
-          )}
+          <Grid item md={7} mt={3}>
+            <Grid container columnSpacing={{ xs: 1 }}>
+              {editableDate ? (
+                <Grid item xs={dateTimeFieldsGridSize}>
+                  <DateField
+                    defaultDate={date}
+                    label={index === 0 ? "Pick up date" : "Arrival date"}
+                  />
+                </Grid>
+              ) : (
+                "Estimated arrival - "
+              )}
 
-          {editableTime ? (
-            <>
-              <Grid item xs={dateTimeFieldsGridSize}>
-                <TimeField defaultTime={timeFrom} label="From" />
-              </Grid>
-              <Grid item xs={dateTimeFieldsGridSize}>
-                <TimeField defaultTime={timeTo} label="To" />
-              </Grid>
-            </>
-          ) : (
-            ""
-          )}
-        </Grid>
-        <Grid container mt={3} mb={5}>
-          <Button color="warning">+ Gate reference</Button>
+              {editableTime ? (
+                <>
+                  <Grid item xs={dateTimeFieldsGridSize}>
+                    <TimeField defaultTime={timeFrom} label="From" />
+                  </Grid>
+                  <Grid item xs={dateTimeFieldsGridSize}>
+                    <TimeField defaultTime={timeTo} label="To" />
+                  </Grid>
+                </>
+              ) : (
+                ""
+              )}
+            </Grid>
+            <Grid container mt={3} mb={1}>
+              <Button color="warning">+ Gate reference</Button>
+            </Grid>
+          </Grid>
+          <Grid xs={12}>{canAddCargo ? <CargoItem /> : ""}</Grid>
         </Grid>
       </Grid>
-      <Grid xs={12}>{canAddCargo ? <CargoItem /> : ""}</Grid>
     </Grid>
   );
 };
