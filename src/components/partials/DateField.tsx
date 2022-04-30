@@ -16,7 +16,9 @@ const DateField: FC<DateFieldPropsType> = (props) => {
     setDate(date);
   };
 
-  const handleRenderInput = (props: MuiTextFieldProps) => <TextField {...props} />;
+  const handleRenderInput = (props: MuiTextFieldProps) => (
+    <TextField sx={{ width: "100%" }} {...props} />
+  );
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>

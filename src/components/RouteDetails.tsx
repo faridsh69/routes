@@ -4,6 +4,7 @@ import {
   FormControl,
   FormControlLabel,
   FormGroup,
+  Grid,
   InputLabel,
   MenuItem,
   Select,
@@ -34,30 +35,36 @@ const RouteDetails: FC<RouteDetailsPropsType> = (props) => {
 
   return (
     <>
-      <Typography variant="h5">Route</Typography>
+      <Grid container mt={5} columnSpacing={{ xs: 1, sm: 2 }}>
+        <Grid item xs={4} md={6}>
+          <Typography variant="h4">Route</Typography>
+        </Grid>
+        <Grid item xs={6} sm={4} md={3}>
+          <FormControl sx={{ minWidth: "10rem" }}>
+            <InputLabel>Schedule Strategy</InputLabel>
+            <Select
+              value={scheduleStrategy}
+              label="Schedule Strategy"
+              onChange={handleChangeScheduleStrategy}
+            >
+              {SCHEDULE_STRATEGIES.map((scheduleStrategy) => (
+                <MenuItem key={scheduleStrategy} value={scheduleStrategy}>
+                  {scheduleStrategy}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12} md={3}>
+          <FormGroup>
+            <FormControlLabel
+              control={<Checkbox value={canAddCargo} onChange={handleChangeCargoCheckbox} />}
+              label="Can Add Cargo"
+            />
+          </FormGroup>
+        </Grid>
+      </Grid>
 
-      <FormGroup>
-        <FormControlLabel
-          control={<Checkbox value={canAddCargo} onChange={handleChangeCargoCheckbox} />}
-          label="Can Add Cargo"
-        />
-      </FormGroup>
-
-      <FormControl>
-        <InputLabel>Schedule Strategy</InputLabel>
-        <Select
-          value={scheduleStrategy}
-          label="Schedule Strategy"
-          onChange={handleChangeScheduleStrategy}
-        >
-          {SCHEDULE_STRATEGIES.map((scheduleStrategy) => (
-            <MenuItem key={scheduleStrategy} value={scheduleStrategy}>
-              {scheduleStrategy}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      <hr />
       {stops.map((stopData, index) => {
         const isLastStop = stops.length === index + 1;
         const StopDetailsProps = { ...stopData, scheduleStrategy, canAddCargo, index, isLastStop };
